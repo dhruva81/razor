@@ -34,7 +34,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Dhruva81\\Razor\\": "src",
+            "Dhruva81\\Razor\\": "src"
         }
     },
     "autoload-dev": {
