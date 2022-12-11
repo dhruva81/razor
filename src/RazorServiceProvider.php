@@ -2,24 +2,25 @@
 
 namespace Dhruva81\Razor;
 
-use Spatie\LaravelPackageTools\Package;
-use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Dhruva81\Razor\Commands\RazorCommand;
+use Illuminate\Support\ServiceProvider;
 
-class RazorServiceProvider extends PackageServiceProvider
+class RazorServiceProvider extends ServiceProvider
 {
-    public function configurePackage(Package $package): void
+    public function register()
     {
-        /*
-         * This class is a Package Service Provider
-         *
-         * More info: https://github.com/spatie/laravel-package-tools
-         */
-        $package
-            ->name('razor')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_razor_table')
-            ->hasCommand(RazorCommand::class);
+        $this->mergeConfigFrom(__DIR__.'/../config/razor.php', 'razor');
+    }
+
+    public function boot()
+    {
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'razor');
+
+        $this->publishes([
+            __DIR__.'/../resources/views' => resource_path('views/vendor/razor'),
+        ]);
+
+        $this->publishes([
+            __DIR__.'/../config/razor.php' => config_path('razor.php'),
+        ]);
     }
 }

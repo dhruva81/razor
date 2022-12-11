@@ -17,7 +17,6 @@
     ],
     "require": {
         "php": "^8.1",
-        "spatie/laravel-package-tools": "^1.13.0",
         "illuminate/contracts": "^9.0"
     },
     "require-dev": {
@@ -36,7 +35,6 @@
     "autoload": {
         "psr-4": {
             "Dhruva81\\Razor\\": "src",
-            "Dhruva81\\Razor\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
