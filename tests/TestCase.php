@@ -2,9 +2,9 @@
 
 namespace Dhruva81\Razor\Tests;
 
+use Dhruva81\Razor\RazorServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Dhruva81\Razor\RazorServiceProvider;
 
 class TestCase extends Orchestra
 {
