@@ -24,7 +24,7 @@
                             'border-indigo-500 text-indigo-600' => $tab['active'],
                             'border-transparent text-gray-600' => !$tab['active'],
                          ])>
-                            <x-heroicon-o-information-circle
+                            <x-dynamic-component :component="$tab['icon']"
                                 @class([
                                      'group-hover:text-gray-500 -ml-0.5 mr-2 h-5 w-5',
                                      'border-indigo-500 text-indigo-600' => $tab['active'],
