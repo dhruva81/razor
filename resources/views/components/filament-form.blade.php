@@ -1,49 +1,31 @@
 @props([
     'record' => null,
+    'flat' => false,
+     'onlySubmit' => false,
     ])
 <div>
-    <form>
-        {{ $this->form }}
-    </form>
+    <div
+        @class([
+            'bg-white shadow rounded-lg divide-y divide-gray-200 border border-gray-300' => !$flat,
+            ])
+    >
+        <div
+            @class([
+            'px-6 py-6' => !$flat,
+            ])
+           >
+            {{ $this->form }}
+        </div>
 
-    <div class="flex space-x-4 my-6">
-        <x-button
-            color="indigo"
-            type="button"
-            wire:click="save"
-            wire:target="save"
-            loader
-        >
-            Submit
-        </x-button>
-        @if($record)
-            <x-button
-                color="indigo"
-                type="button"
-                wire:click="saveAndContinueEditing"
-                wire:target="saveAndContinueEditing"
-                loader
+        <div
+            @class([
+            'py-4',
+            'flex justify-between items-center rounded-lg bg-gray-100 px-6' => !$flat,
+            ])
             >
-                Submit and Continue Editing
-            </x-button>
-        @else
-            <x-button
-                color="indigo"
-                type="button"
-                wire:click="saveAndCreateAnother"
-                wire:target="saveAndCreateAnother"
-                loader
-            >
-                Submit and Create Another
-            </x-button>
-        @endif
-        <x-button
-            color="gray"
-            type="button"
-            wire:click="cancel"
-            wire:target="cancel"
-        >
-            Cancel
-        </x-button>
+            <x-razor::filament-form-buttons :record="$record" :onlySubmit="$onlySubmit" />
+
+        </div>
+
     </div>
 </div>
