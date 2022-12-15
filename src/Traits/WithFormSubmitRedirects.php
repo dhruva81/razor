@@ -6,28 +6,28 @@ trait WithFormSubmitRedirects
 {
     public function submit()
     {
-        $this->formSubmitAction();
+        $this->getFormSubmitAction();
 
-        return redirect($this->formSubmitRoutes('submit'));
+        return redirect($this->getFormSubmitRoutes('submit'));
     }
 
     public function submitAndCreateAnother()
     {
-        $this->formSubmitAction();
+        $this->getFormSubmitAction();
         $this->form->fill();
 
-        return redirect($this->formSubmitRoutes('submitAndCreateAnother'));
+        return redirect($this->getFormSubmitRoutes('submitAndCreateAnother'));
     }
 
     public function submitAndContinueEditing(): void
     {
-        $this->formSubmitAction();
+        $this->getFormSubmitAction();
     }
 
     public function cancel()
     {
         return isset($this->record)
-            ? redirect($this->formSubmitRoutes('cancelForRecord'))
-            : redirect($this->formSubmitRoutes('cancel'));
+            ? redirect($this->getFormSubmitRoutes('cancelForRecord'))
+            : redirect($this->getFormSubmitRoutes('cancel'));
     }
 }
