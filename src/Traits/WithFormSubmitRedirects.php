@@ -7,6 +7,7 @@ trait WithFormSubmitRedirects
     public function submit()
     {
         $this->formSubmitAction();
+
         return redirect($this->formSubmitRoutes('submit'));
     }
 
@@ -14,6 +15,7 @@ trait WithFormSubmitRedirects
     {
         $this->formSubmitAction();
         $this->form->fill();
+
         return redirect($this->formSubmitRoutes('submitAndCreateAnother'));
     }
 
@@ -25,7 +27,7 @@ trait WithFormSubmitRedirects
     public function cancel()
     {
         return isset($this->record)
-            ?   redirect($this->formSubmitRoutes('cancelForRecord'))
-            :   redirect($this->formSubmitRoutes('cancel'));
+            ? redirect($this->formSubmitRoutes('cancelForRecord'))
+            : redirect($this->formSubmitRoutes('cancel'));
     }
 }
