@@ -131,7 +131,7 @@
         {{ $tabs ?? '' }}
 
         @if($tabLinks)
-            <xrazor::tabs
+            <x-razor::tabs
                 :tabs="$tabLinks"
                 :padding="$padding"
                 :bgColor="$bgColor"
