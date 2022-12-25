@@ -1,9 +1,12 @@
 @props([
     'tabs' => [],
+    'padding' => 'px-4 md:px-6 lg:px-8',
+    'bgColor' => 'bg-transparent',
     ])
 
-<div {{ $attributes->merge(['class' => 'bg-white border-b border-gray-200']) }}>
-    <div class="px-4 md:px-6 lg:px-8">
+<div
+    {{ $attributes->merge(['class' => $bgColor . ' border-t border-b border-gray-200 ']) }}>
+    <div class="{{ $padding }}">
         <div class="sm:hidden">
             <label for="tabs" class="sr-only">Select a tab</label>
             <!-- Use an "onChange" listener to redirect the user to the selected tab URL. -->
