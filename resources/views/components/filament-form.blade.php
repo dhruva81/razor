@@ -20,7 +20,7 @@
         <div
             @class([
             'py-4',
-            'flex justify-between items-center rounded-lg bg-gray-100 px-6' => !$flat,
+            'flex justify-between items-center rounded-b-lg bg-gray-100 px-6' => !$flat,
             ])
             >
             <x-razor::filament-form-buttons :record="$record" :onlySubmit="$onlySubmit" />

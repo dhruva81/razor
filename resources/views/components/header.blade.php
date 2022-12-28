@@ -76,7 +76,7 @@
 
                         @if($title)
                             <h2 class="mt-1 text-xl font-semibold text-gray-900 sm:truncate">
-                                @if($href)
+                                @if($href && $href != '#')
                                     <a href="{{ $href }}">
                                         {{ $title }}
                                     </a>
